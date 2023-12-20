@@ -1,5 +1,6 @@
 ```sh
 composer install
+create .env
 php artisan migrate
 php artisan serve
 ```

@@ -18,11 +18,11 @@ use Illuminate\Support\Facades\Session;
 
 Route::post('/login', [UserController::class, 'login']);
 Route::put('/logout', [UserController::class, 'logout']);
+Route::post('/', [UserController::class, 'store']);
 
 Route::group(['middleware' => 'admin'], function() {
     Route::prefix('users')->group(function () {
         Route::get('/', [UserController::class, 'index']);
-        Route::post('/', [UserController::class, 'store']);
         Route::get('/{id}', [UserController::class, 'show']);
         Route::put('/{id}', [UserController::class, 'update']);
         Route::delete('/{id}', [UserController::class, 'destroy']);

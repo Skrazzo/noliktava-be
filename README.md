@@ -30,3 +30,12 @@ All routes base url is http://localhost:8000/api/
 |/shelf| [name] | create new shelf|POST|
 |/shelf/{id}| [name]| update shelfs name| PUT|
 |/shelf/{id}| no arguments| delete specified shelf|DELETE|
+
+### Products
+|route|arguments|why?|method|
+|---|---|---|---|
+|/items|no arguments| list all products in the store|GET|
+|/items{id}|no arguments| list specified product|GET|
+|/items|[shelf_id, name, price, image_url]| create new product|POST|
+|/items{id}|[shelf_id, name, price, image_url] (optional)| update already existing product|PUT|
+|/items{id}| no arguments| delete product|DELETE|

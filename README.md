@@ -21,7 +21,12 @@ All routes base url is http://localhost:8000/api/
 |/users/{id}|[password, privilage - 0,1,2]|edit specific users password or privilage information|PUT|
 |/users/{id}|no arguments| delete specific user based on its id| DELETE|
 
-### Data
+### Shelves
 
 |route|arguments|why?|method|
 |---|---|---|---|
+|/shelf|no arguments|print out all shelves|GET|
+|/shelf/{id}|no arguments|list one shelfs items|GET|
+|/shelf| [name] | create new shelf|POST|
+|/shelf/{id}| [name]| update shelfs name| PUT|
+|/shelf/{id}| no arguments| delete specified shelf|DELETE|

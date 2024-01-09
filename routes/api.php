@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\ItemsController;
+use App\Http\Controllers\ShelfController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
@@ -30,7 +32,23 @@ Route::group([], function() {
         Route::delete('/{id}', [UserController::class, 'destroy']); // delete user - [pass id in the link]
         
     });
+});
 
+Route::prefix('items')->group(function () {
+    // Route::get('/', [ItemsController::class, '']); // Retrieve all items
+    // Route::get('/{id}', [ItemsController::class, '']); // Retrieve a specific item by ID
+    Route::post('/', [ItemsController::class, 'create']); // Create a new item
+    // Route::put('/{id}', [ItemsController::class, '']); // Update an existing item
+    // Route::patch('/{id}', [ItemsController::class, '']); // Update an existing item (alternative)
+    // Route::delete('/{id}', [ItemsController::class, '']); // Delete an item
+});
+
+Route::prefix('shelf')->group(function () {
+    Route::get('/', [ShelfController::class, 'index']); // Retrieve all items
+    Route::get('/{id}', [ShelfController::class, 'list_shelf']); // Retrieve a specific item by ID
+    Route::post('/', [ShelfController::class, 'create']); // Create a new item
+    Route::put('/{id}', [ShelfController::class, 'update']); // Update an existing item
+    Route::delete('/{id}', [ShelfController::class, 'delete']); // Delete an item
 });
 
 

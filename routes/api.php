@@ -35,12 +35,11 @@ Route::group([], function() {
 });
 
 Route::prefix('items')->group(function () {
-    // Route::get('/', [ItemsController::class, '']); // Retrieve all items
-    // Route::get('/{id}', [ItemsController::class, '']); // Retrieve a specific item by ID
+    Route::get('/', [ItemsController::class, 'index']); // Retrieve all items
+    Route::get('/{id}', [ItemsController::class, 'show']); // Retrieve a specific item by ID
     Route::post('/', [ItemsController::class, 'create']); // Create a new item
-    // Route::put('/{id}', [ItemsController::class, '']); // Update an existing item
-    // Route::patch('/{id}', [ItemsController::class, '']); // Update an existing item (alternative)
-    // Route::delete('/{id}', [ItemsController::class, '']); // Delete an item
+    Route::put('/{id}', [ItemsController::class, 'update']); // Update an existing item
+    Route::delete('/{id}', [ItemsController::class, 'delete']); // Delete an item
 });
 
 Route::prefix('shelf')->group(function () {

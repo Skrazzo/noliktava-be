@@ -22,7 +22,7 @@ Route::post('/login', [UserController::class, 'login']); // login - [username, p
 Route::put('/logout', [UserController::class, 'logout']); // logout - []
 //Route::get('/users', [UserController::class, 'index']); // show all users - []
 
-
+// admin
 Route::group([], function() {
     Route::prefix('users')->group(function () {
         Route::get('/', [UserController::class, 'index']); // show all users - []
@@ -42,12 +42,16 @@ Route::prefix('items')->group(function () {
     Route::delete('/{id}', [ItemsController::class, 'delete']); // Delete an item
 });
 
-Route::prefix('shelf')->group(function () {
-    Route::get('/', [ShelfController::class, 'index']); // Retrieve all items
-    Route::get('/{id}', [ShelfController::class, 'list_shelf']); // Retrieve a specific item by ID
-    Route::post('/', [ShelfController::class, 'create']); // Create a new item
-    Route::put('/{id}', [ShelfController::class, 'update']); // Update an existing item
-    Route::delete('/{id}', [ShelfController::class, 'delete']); // Delete an item
+// warehouse_worker
+Route::middleware('')->group(function() {
+    Route::prefix('shelf')->group(function () {
+        Route::get('/', [ShelfController::class, 'index']); // Retrieve all items
+        Route::get('/{id}', [ShelfController::class, 'list_shelf']); // Retrieve a specific item by ID
+        Route::post('/', [ShelfController::class, 'create']); // Create a new item
+        Route::put('/{id}', [ShelfController::class, 'update']); // Update an existing item
+        Route::delete('/{id}', [ShelfController::class, 'delete']); // Delete an item
+    });
+
 });
 
 

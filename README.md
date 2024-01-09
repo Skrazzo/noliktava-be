@@ -9,6 +9,8 @@ php artisan serve
 
 All routes base url is http://localhost:8000/api/
 
+## Administrator
+
 |route|arguments|why?|method|
 |---|---|---|---|
 |/login|[username, password]|login user| POST |

@@ -9,7 +9,7 @@ php artisan serve
 
 All routes base url is http://localhost:8000/api/
 
-## Administrator
+### User management
 
 |route|arguments|why?|method|
 |---|---|---|---|
@@ -20,3 +20,8 @@ All routes base url is http://localhost:8000/api/
 |/users/{id}|no arguments| see specific user info based on id|GET|
 |/users/{id}|[password, privilage - 0,1,2]|edit specific users password or privilage information|PUT|
 |/users/{id}|no arguments| delete specific user based on its id| DELETE|
+
+### Data
+
+|route|arguments|why?|method|
+|---|---|---|---|
